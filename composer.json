@@ -1,0 +1,38 @@
+{
+    "name": "ledjin/sylius-sagepay-bundle",
+    "type": "bundle",
+    "description": "Sagepay payment lib",
+    "keywords": ["payment", "sagepay", "payum", "sylius", "payum bundle", "symfony2", "ledjin sagepay"],
+    "homepage": "http://www.ledj.in",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandr Jeliuc",
+            "email": "a2xchip@gmail.com"
+        },
+        {
+            "name":     "LedjIn Labs",
+            "homepage": "http://www.ledj.in"
+        },
+        {
+            "name":     "Community contributions",
+            "homepage": "https://github.com/LedjIn/Sagepay"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "ledjin/sagepay-bundle": "~0.1.@dev"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": { "Ledjin\\Bundle\\SyliusSagepayBundle": "" }
+    },
+    "target-dir": "Ledjin/Bundle/SyliusSagepayBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}

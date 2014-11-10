@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ This file is part of the Ledjin package.
+ (c) Alexandr Jeliuc
+ For the full copyright and license information, please view the LICENSE
+ file that was distributed with this source code.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+                               http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="sylius.payum.sagepay.action.capture_payment_using_sagepay_onsite.class">Ledjin\Bundle\SagepayBundle\Payum\Sagepay\Action\CapturePaymentUsingSagepayOnsiteAction</parameter>
+        <parameter key="sylius.payum.sagepay.action.notify.class">Ledjin\Bundle\SagepayBundle\Payum\Sagepay\Action\NotifyAction</parameter>
+    </parameters>
+
+    <services>
+        
+        <!-- sagepay -->
+        <service id="sylius.payum.sagepay.action.capture_payment_using_sagepay_onsite" class="Ledjin\Bundle\SyliusSagepayBundle\Payum\Sagepay\Action\CapturePaymentUsingSagepayOnsiteAction" public="false">
+            <call method="setCurrencyConverter">
+                <argument type="service" id="sylius.currency_converter" />
+            </call>
+            <call method="setTokenFactory">
+                <argument type="service" id="payum.security.token_factory" />
+            </call>
+
+            <tag name="payum.action" factory="sagepay_onsite" />
+        </service>
+
+        <!-- <service id="sylius.payum.sagepay.action.notify" class="%sylius.payum.sagepay.action.notify.class%" public="false">
+            <argument type="service" id="payum.context.sagepay_onsite.api" />
+            <argument type="service" id="sylius.repository.payment" />
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="sylius.manager.payment" />
+            <argument type="service" id="sm.factory" />
+            <argument>id</argument>
+            <tag name="payum.action" factory="sagepay_onsite" />
+        </service> -->
+    </services>
+</container>
