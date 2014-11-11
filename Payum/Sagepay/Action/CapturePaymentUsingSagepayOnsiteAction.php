@@ -40,9 +40,9 @@ class CapturePaymentUsingSagepayOnsiteAction extends AbstractCapturePaymentActio
 
         $details = array(
             'VendorTxCode' => $payment->getId(),
-            'Amount' => $total,
+            'Amount' => $round($total / 100, 2),
             'Currency' => $order->getCurrency(),
-            'Description' => sprintf('Order containing %d items for a total of %01.2f', $order->getItems()->count(), $total),
+            'Description' => sprintf('Order containing %d items for a total of %01.2f', $order->getItems()->count(), round($total / 100, 2)),
             'NotificationURL' => $this->tokenFactory
                 ->createNotifyToken(
                     $token->getPaymentName(),
