@@ -11,12 +11,6 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
-
-    <parameters>
-        <parameter key="sylius.payum.sagepay.action.capture_payment_using_sagepay_onsite.class">Ledjin\Bundle\SagepayBundle\Payum\Sagepay\Action\CapturePaymentUsingSagepayOnsiteAction</parameter>
-        <parameter key="sylius.payum.sagepay.action.notify.class">Ledjin\Bundle\SagepayBundle\Payum\Sagepay\Action\NotifyAction</parameter>
-    </parameters>
-
     <services>
         
         <!-- sagepay -->
@@ -31,14 +25,15 @@
             <tag name="payum.action" factory="sagepay_onsite" />
         </service>
 
-        <!-- <service id="sylius.payum.sagepay.action.notify" class="%sylius.payum.sagepay.action.notify.class%" public="false">
+        <service id="sylius.payum.sagepay.action.notify" class="Ledjin\Bundle\SyliusSagepayBundle\Payum\Sagepay\Action\NotifyAction" public="false">
             <argument type="service" id="payum.context.sagepay_onsite.api" />
             <argument type="service" id="sylius.repository.payment" />
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="sylius.manager.payment" />
             <argument type="service" id="sm.factory" />
             <argument>id</argument>
+
             <tag name="payum.action" factory="sagepay_onsite" />
-        </service> -->
+        </service>
     </services>
 </container>
