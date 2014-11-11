@@ -39,7 +39,7 @@ class CapturePaymentUsingSagepayOnsiteAction extends AbstractCapturePaymentActio
         $total = $this->currencyConverter->convert($order->getTotal(), $order->getCurrency());
 
         $details = array(
-            'VendorTxCode' => $order->getNumber(),
+            'VendorTxCode' => $payment->getId(),
             'Amount' => $total,
             'Currency' => $order->getCurrency(),
             'Description' => sprintf('Order containing %d items for a total of %01.2f', $order->getItems()->count(), $total),
