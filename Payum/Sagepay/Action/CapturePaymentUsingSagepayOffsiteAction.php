@@ -10,10 +10,12 @@ use Sylius\Component\Payment\Model\PaymentInterface;
 use Sylius\Component\Currency\Converter\CurrencyConverterInterface;
 use Symfony\Component\HttpFoundation\Request;
 
-class CapturePaymentUsingSagepayOnsiteAction extends AbstractCapturePaymentAction
+class CapturePaymentUsingSagepayOffsiteAction extends AbstractCapturePaymentAction
 {
+    /** @var TokenFactory  */
     protected $tokenFactory;
 
+    /** @var  CurrencyConverterInterface */
     protected $currencyConverter;
 
     public function setTokenFactory(TokenFactory $tokenFactory)

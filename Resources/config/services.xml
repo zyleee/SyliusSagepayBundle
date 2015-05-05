@@ -14,7 +14,7 @@
     <services>
         
         <!-- sagepay -->
-        <service id="sylius.payum.sagepay.action.capture_payment_using_sagepay_onsite" class="Ledjin\Bundle\SyliusSagepayBundle\Payum\Sagepay\Action\CapturePaymentUsingSagepayOnsiteAction" public="false">
+        <service id="sylius.payum.sagepay.action.capture_payment_using_sagepay_offsite" class="Ledjin\Bundle\SyliusSagepayBundle\Payum\Sagepay\Action\CapturePaymentUsingSagepayOffsiteAction" public="false">
             <call method="setCurrencyConverter">
                 <argument type="service" id="sylius.currency_converter" />
             </call>
@@ -22,18 +22,18 @@
                 <argument type="service" id="payum.security.token_factory" />
             </call>
 
-            <tag name="payum.action" factory="sagepay_onsite" />
+            <tag name="payum.action" factory="sagepay_offsite" />
         </service>
 
         <service id="sylius.payum.sagepay.action.notify" class="Ledjin\Bundle\SyliusSagepayBundle\Payum\Sagepay\Action\NotifyAction" public="false">
-            <argument type="service" id="payum.context.sagepay_onsite.api" />
+            <argument type="service" id="payum.payment.sagepay_offsite.api" />
             <argument type="service" id="sylius.repository.payment" />
             <argument type="service" id="event_dispatcher" />
             <argument type="service" id="sylius.manager.payment" />
             <argument type="service" id="sm.factory" />
             <argument>id</argument>
 
-            <tag name="payum.action" factory="sagepay_onsite" />
+            <tag name="payum.action" factory="sagepay_offsite" />
         </service>
     </services>
 </container>
