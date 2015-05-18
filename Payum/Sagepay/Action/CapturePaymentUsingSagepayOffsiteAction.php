@@ -2,13 +2,11 @@
 
 namespace Ledjin\Bundle\SyliusSagepayBundle\Payum\Sagepay\Action;
 
-use Payum\Core\Exception\LogicException;
 use Payum\Core\Security\TokenInterface;
-use Payum\Core\Bridge\Symfony\Security\TokenFactory;
+use Payum\Core\Security\GenericTokenFactoryInterface as TokenFactory;
 use Sylius\Bundle\PayumBundle\Payum\Action\AbstractCapturePaymentAction;
 use Sylius\Component\Payment\Model\PaymentInterface;
 use Sylius\Component\Currency\Converter\CurrencyConverterInterface;
-use Symfony\Component\HttpFoundation\Request;
 
 class CapturePaymentUsingSagepayOffsiteAction extends AbstractCapturePaymentAction
 {

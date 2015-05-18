@@ -2,8 +2,18 @@
 
 namespace Ledjin\Bundle\SyliusSagepayBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Sylius\Bundle\ResourceBundle\AbstractResourceBundle;
+use Sylius\Bundle\ResourceBundle\SyliusResourceBundle;
 
-class LedjinSyliusSagepayBundle extends Bundle
+class LedjinSyliusSagepayBundle extends AbstractResourceBundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    public static function getSupportedDrivers()
+    {
+        return array(
+            SyliusResourceBundle::DRIVER_DOCTRINE_ORM,
+        );
+    }
 }
