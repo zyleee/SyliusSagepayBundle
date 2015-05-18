@@ -22,10 +22,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:zyleee/Sagepay.git"
-        },
-        {
-            "type": "vcs",
             "url": "git@github.com:zyleee/SagepayBundle.git"
         }
     ],
@@ -35,9 +31,7 @@
         "sylius/sylius":                "0.14.*@dev",
         "doctrine/migrations":          "~1.0@dev",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "zyleee/sagepay-bundle": "dev-compatibility-payum-0.13-0.14",
-        "ledjin/sagepay": "dev-compatibility-payum-0.14"
-
+        "zyleee/sagepay-bundle": "dev-compatibility-payum-0.13-0.14"
     },
     "config": {
         "bin-dir": "bin"
